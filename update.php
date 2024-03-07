@@ -3,7 +3,7 @@ require_once 'actions/db_connect.php';
 
 if ($_GET['id']) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM destin WHERE id = {$id}";
+    $sql = "SELECT * FROM offers WHERE id = {$id}";
     $result = mysqli_query($connect, $sql);
     if (mysqli_num_rows($result) == 1) {
         $data = mysqli_fetch_assoc($result);
@@ -30,44 +30,54 @@ if ($_GET['id']) {
 <head>
     <title>Edit Product</title>
     <?php require_once 'components/boot.php' ?>
+    <link rel="stylesheet" href="componentss/xxx.css">
     <style type="text/css">
-        fieldset {
-            margin: auto;
-            margin-top: 100px;
-            width: 60%;
-        }
+    fieldset {
+        margin: auto;
+        margin-top: 100px;
+        width: 60%;
+    }
 
-        .img-thumbnail {
-            width: 70px !important;
-            height: 70px !important;
-        }
+    .img-thumbnail {
+        width: 70px !important;
+        height: 70px !important;
+    }
     </style>
 </head>
 
 <body>
-    <fieldset>
-        <legend class='h2'>Update request <img class='img-thumbnail rounded-circle' src='pictures/<?php echo $picture ?>' alt="<?php echo $name ?>"></legend>
+    <div class="head">
+        <h1 class="name  shadow">Welcome to MOUNT EVEREST Travel Agency</h1>
+    </div>
+    <fieldset class="mb-5">
+        <legend class='h2'>Update request <img class='img-thumbnail rounded-circle'
+                src='pictures/<?php echo $picture ?>' alt="<?php echo $name ?>"></legend>
         <form action="actions/a_update.php" method="post" enctype="multipart/form-data">
             <table class="table">
                 <tr>
                     <th>Place</th>
-                    <td><input class='form-control' type="text" name="place" placeholder="Place" value="<?php echo $place ?>" /></td>
+                    <td><input class='form-control' type="text" name="place" placeholder="Place"
+                            value="<?php echo $place ?>" /></td>
                 </tr>
                 <tr>
                     <th>Country</th>
-                    <td><input class='form-control' type="text" name="country" placeholder="Country" value="<?php echo $country ?>" /></td>
+                    <td><input class='form-control' type="text" name="country" placeholder="Country"
+                            value="<?php echo $country ?>" /></td>
                 </tr>
                 <tr>
                     <th>Description</th>
-                    <td><input class='form-control' type="text" name="des" placeholder="Description" value="<?php echo $des ?>" /></td>
+                    <td><input class='form-control' type="text" name="des" placeholder="Description"
+                            value="<?php echo $des ?>" /></td>
                 </tr>
                 <tr>
                     <th>Latitude</th>
-                    <td><input class='form-control' type="text" name="lat" placeholder="Latitude" step="any" value="<?php echo $lat ?>" /></td>
+                    <td><input class='form-control' type="text" name="lat" placeholder="Latitude" step="any"
+                            value="<?php echo $lat ?>" /></td>
                 </tr>
                 <tr>
                     <th>Longitude</th>
-                    <td><input class='form-control' type="text" name="lon" placeholder="Longitude" step="any" value="<?php echo $lon ?>" /></td>
+                    <td><input class='form-control' type="text" name="lon" placeholder="Longitude" step="any"
+                            value="<?php echo $lon ?>" /></td>
                 </tr>
 
                 <tr>
@@ -76,21 +86,25 @@ if ($_GET['id']) {
                 </tr>
                 <tr>
                     <th>Price</th>
-                    <td><input class='form-control' type="number" name="price" placeholder="Price" step="any" value="<?php echo $price ?>" /></td>
+                    <td><input class='form-control' type="number" name="price" placeholder="Price" step="any"
+                            value="<?php echo $price ?>" /></td>
                 </tr>
                 <tr>
                     <th>Section</th>
-                    <td><input class='form-control' type="text" name="sect" placeholder="Section" value="<?php echo $sect ?>" /></td>
+                    <td><input class='form-control' type="text" name="sect" placeholder="Section"
+                            value="<?php echo $sect ?>" /></td>
                 </tr>
                 <tr>
                     <input type="hidden" name="id" value="<?php echo $data['id'] ?>" />
                     <input type="hidden" name="picture" value="<?php echo $data['picture'] ?>" />
                     <td><button class="btn btn-success" type="submit">Save Changes</button></td>
-                    <td><a href="index.php"><button class="btn btn-warning" type="button">Back</button></a></td>
+                    <td><a href="details.php?id=<?php echo $data['id'] ?>"><button class="btn btn-warning"
+                                type="button">Back</button></a></td>
                 </tr>
             </table>
         </form>
     </fieldset>
+    <?php include 'components/footer.php' ?>
 </body>
 
 </html>

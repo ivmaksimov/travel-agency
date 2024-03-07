@@ -3,7 +3,7 @@ require_once 'actions/db_connect.php';
 
 if ($_GET['id']) {
     $id = $_GET['id'];
-    $sql = "SELECT * FROM destin WHERE id = {$id}";
+    $sql = "SELECT * FROM offers WHERE id = {$id}";
     $result = mysqli_query($connect, $sql);
     $data = mysqli_fetch_assoc($result);
     if (mysqli_num_rows($result) == 1) {
@@ -33,25 +33,26 @@ if ($_GET['id']) {
     <?php require_once 'components/boot.php' ?>
     <link rel="stylesheet" href="./componentss/xxx.css">
     <style type="text/css">
-        fieldset {
-            margin: auto;
-            margin-top: 100px;
-            width: 70%;
-        }
+    fieldset {
+        margin: auto;
+        margin-top: 100px;
+        width: 70%;
+    }
 
-        .img-thumbnail {
-            width: 70px !important;
-            height: 70px !important;
-        }
+    .img-thumbnail {
+        width: 70px !important;
+        height: 70px !important;
+    }
     </style>
 </head>
 
 <body>
     <div class="head">
-        <h1 class="name price shadow">Welcome to MOUNT EVEREST Travel Agency</h1>
+        <h1 class="name  shadow">Welcome to MOUNT EVEREST Travel Agency</h1>
     </div>
-    <fieldset>
-        <legend class='h2 mb-3'>Delete request <img class='img-thumbnail rounded-circle' src='pictures/<?php echo $picture ?>' alt="<?php echo $place ?>"></legend>
+    <fieldset class="vh-90">
+        <legend class='h2 mb-3'>Delete request <img class='img-thumbnail rounded-circle'
+                src='pictures/<?php echo $picture ?>' alt="<?php echo $place ?>"></legend>
         <h5>You have selected the data below:</h5>
         <table class="table w-75 mt-3">
             <tr>
@@ -67,6 +68,8 @@ if ($_GET['id']) {
             <a href="index.php"><button class="btn btn-warning" type="button">No, go back!</button></a>
         </form>
     </fieldset>
+    <?php include 'components/footer.php' ?>
+
 </body>
 
 </html>

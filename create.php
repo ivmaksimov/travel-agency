@@ -5,17 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require_once 'components/boot.php' ?>
+    <link rel="stylesheet" href="componentss/xxx.css">
     <title>Add New Destination</title>
     <style>
-        fieldset {
-            margin: auto;
-            margin-top: 100px;
-            width: 60%;
-        }
+    fieldset {
+        margin: auto;
+        margin-top: 100px;
+        width: 60%;
+    }
     </style>
 </head>
 
 <body>
+    <div class="head">
+        <h1 class="name  shadow">Welcome to MOUNT EVEREST Travel Agency</h1>
+    </div>
     <fieldset>
         <legend class='h2'>Add New Destination</legend>
         <form action="actions/a_create.php" method="post" enctype="multipart/form-data">
@@ -60,6 +64,7 @@
             </table>
         </form>
     </fieldset>
+    <?php include 'components/footer.php' ?>
 </body>
 
 </html>
